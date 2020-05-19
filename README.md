@@ -1,5 +1,8 @@
 # Ef Core postgres COPY binary extension
 
+![NuGet Generation](https://github.com/Fazzani/pg-efcore-copy/workflows/NuGet%20Generation/badge.svg) 
+![Build](https://github.com/Fazzani/pg-efcore-copy/workflows/Build/badge.svg)
+
 Entity framework core extension to perform [Postgres copy](https://kb.objectrocket.com/postgresql/postgresql-copy-example-826)
 
 Based on [PostgreSQLCopyHelper](https://github.com/PostgreSQLCopyHelper/PostgreSQLCopyHelper)
@@ -62,6 +65,6 @@ Intel Core i7-9750H CPU 2.60GHz, 1 CPU, 12 logical and 6 physical cores
 - [x] Caching PostgreSQLCopyHelperFactory
 - [x] SaveCopyChanges extension
 - [x] Packaging library
+- [x] Github Actions
 - [ ] Transaction handling
-- [ ] Unit tests
-- [ ] az pipeline
+- [ ] Unit tests && update build

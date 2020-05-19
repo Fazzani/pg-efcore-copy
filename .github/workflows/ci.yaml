@@ -1,0 +1,23 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [closed]
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    name: Build solution
+    steps:
+      
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Build with dotnet
+        run: dotnet build --configuration Release
+        shell: bash

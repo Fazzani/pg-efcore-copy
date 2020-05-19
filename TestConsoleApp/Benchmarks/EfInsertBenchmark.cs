@@ -1,12 +1,16 @@
 using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Order;
 
 namespace TestConsoleApp.Benchmarks
 {
+    [MemoryDiagnoser]
+    [Orderer(SummaryOrderPolicy.FastestToSlowest)]
+    [RankColumn]
     public class EfInsertBenchmark
     {
-        [Benchmark]
+        [Benchmark(Baseline = true)]
         [Arguments(100)]
-        [Arguments(1_000_000)]
+        [Arguments(10_000)]
         public void Save(long count)
         {
             var posts = EfInsertionTests.GeneratePosts(count: count == default ? 100 : count);
@@ -15,7 +19,7 @@ namespace TestConsoleApp.Benchmarks
 
         [Benchmark]
         [Arguments(100)]
-        [Arguments(1_000_000)]
+        [Arguments(10_000)]
         public void SaveEfCopy(long count)
         {
             var posts = EfInsertionTests.GeneratePosts(count: count == default ? 100 : count);

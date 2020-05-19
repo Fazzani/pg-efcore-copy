@@ -7,7 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF.Extensions.PgCopy", "EF.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution items", "{358D9968-A68D-4DDE-8244-4FD64943E6FD}"
 ProjectSection(SolutionItems) = preProject
-	az-pipelline.yaml = az-pipelline.yaml
 	README.md = README.md
 	.gitignore = .gitignore
 	.dockerignore = .dockerignore

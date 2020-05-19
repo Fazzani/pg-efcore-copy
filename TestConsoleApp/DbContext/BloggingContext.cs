@@ -5,10 +5,8 @@ namespace TestConsoleApp.DbContext
 {
     public class BloggingContext : Microsoft.EntityFrameworkCore.DbContext
     {
-        public static readonly string ConnectionString =
-            "Host=localhost;Port=54322;Database=dbtest;Username=db_user;Password=dtpass";
+        private const string ConnectionString = "Host=localhost;Port=54322;Database=dbtest;Username=db_user;Password=dtpass";
 
-        
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
 
