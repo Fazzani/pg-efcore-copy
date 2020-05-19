@@ -7,4 +7,7 @@ build_pg:
 run_pg:
 	docker run -itd --rm -e POSTGRES_PASSWORD=dt_pass -p 54322:5432 pg-ef-copy
 ef_mig:
-	./start.sh -m
+	chmod +x ./start.sh && ./start.sh -m
+setup_db_for_test: build_pg run_pg
+	dotnet ef database update -s TestConsoleApp
+    

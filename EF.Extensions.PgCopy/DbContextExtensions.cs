@@ -31,7 +31,7 @@ namespace EF.Extensions.PgCopy
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         public static async Task<int> SaveByCopyChangesAsync(this DbContext dbContext,
-            CancellationToken cancellationToken)
+            CancellationToken cancellationToken=default)
         {
             if (!dbContext.ChangeTracker.HasChanges()) return await dbContext.SaveChangesAsync(cancellationToken);
 
@@ -134,8 +134,14 @@ namespace EF.Extensions.PgCopy
 
             var saveAllMethodInfo = copyHelper.GetType()
                 .GetMethod("SaveAll", BindingFlags.Instance | BindingFlags.Public);
+            
             var entities =
-                castMethod.Invoke(null, new object[] {dbContext.ChangeTracker.Entries().Select(x => x.Entity)});
+                castMethod.Invoke(null, new object[] {dbContext
+                    .ChangeTracker
+                    .Entries()
+                    .Where(x => x.Entity.GetType() == entityType)
+                    .Select(x => x.Entity)});
+            
             return Convert.ToInt32(saveAllMethodInfo?.Invoke(copyHelper,
                 new[] {(NpgsqlConnection) dbContext.Database.GetDbConnection(), entities}));
         }

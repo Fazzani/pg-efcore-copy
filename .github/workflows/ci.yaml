@@ -1,4 +1,4 @@
-name: Build
+name: Build and test
 
 on:
   push:
@@ -12,7 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-18.04
-    name: Build solution
+    name: Build and test
     steps:
       
       - name: Checkout repository
@@ -20,4 +20,16 @@ jobs:
         
       - name: Build with dotnet
         run: dotnet build --configuration Release
+        shell: bash
+        
+      - name: Install EF core tool
+        run: dotnet tool install --global dotnet-ef
+        shell: bash
+        
+      - name: Run postgres database for testing
+        run: make setup_db_for_test
+        shell: bash
+        
+      - name: Unit tests
+        run: dotnet test --no-restore --verbosity normal
         shell: bash

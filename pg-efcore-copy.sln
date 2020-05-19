@@ -18,6 +18,8 @@ EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsoleApp", "TestConsoleApp\TestConsoleApp.csproj", "{C99FB87D-64CB-47E5-BDDF-B818C377336C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF.Extensions.PgCopy.Tests", "EF.Extensions.PgCopy.Tests\EF.Extensions.PgCopy.Tests.csproj", "{08DB5AE6-CF2C-4FAB-BB87-891742B1FEDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,5 +57,17 @@ Global
 		{C99FB87D-64CB-47E5-BDDF-B818C377336C}.Release|x64.Build.0 = Release|Any CPU
 		{C99FB87D-64CB-47E5-BDDF-B818C377336C}.Release|x86.ActiveCfg = Release|Any CPU
 		{C99FB87D-64CB-47E5-BDDF-B818C377336C}.Release|x86.Build.0 = Release|Any CPU
+		{08DB5AE6-CF2C-4FAB-BB87-891742B1FEDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08DB5AE6-CF2C-4FAB-BB87-891742B1FEDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08DB5AE6-CF2C-4FAB-BB87-891742B1FEDE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{08DB5AE6-CF2C-4FAB-BB87-891742B1FEDE}.Debug|x64.Build.0 = Debug|Any CPU
+		{08DB5AE6-CF2C-4FAB-BB87-891742B1FEDE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{08DB5AE6-CF2C-4FAB-BB87-891742B1FEDE}.Debug|x86.Build.0 = Debug|Any CPU
+		{08DB5AE6-CF2C-4FAB-BB87-891742B1FEDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08DB5AE6-CF2C-4FAB-BB87-891742B1FEDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08DB5AE6-CF2C-4FAB-BB87-891742B1FEDE}.Release|x64.ActiveCfg = Release|Any CPU
+		{08DB5AE6-CF2C-4FAB-BB87-891742B1FEDE}.Release|x64.Build.0 = Release|Any CPU
+		{08DB5AE6-CF2C-4FAB-BB87-891742B1FEDE}.Release|x86.ActiveCfg = Release|Any CPU
+		{08DB5AE6-CF2C-4FAB-BB87-891742B1FEDE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

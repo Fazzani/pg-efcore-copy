@@ -10,7 +10,7 @@ Based on [PostgreSQLCopyHelper](https://github.com/PostgreSQLCopyHelper/PostgreS
 ## Installation
 
 ```shell
-dotnet add package EF.Extensions.PgCopy --version 1.0.0
+dotnet add package EF.Extensions.PgCopy --version 1.0.2
 ```
 
 ### Example
@@ -53,18 +53,3 @@ Intel Core i7-9750H CPU 2.60GHz, 1 CPU, 12 logical and 6 physical cores
 |       Save | 1000000 | 372,285.08 ms | 47,559.949 ms | 137,221.328 ms | 319,992.52 ms |
 | SaveEfCopy | 1000000 |  82,974.09 ms |  2,410.985 ms |   6,878.675 ms |  81,184.00 ms |
 
-
-## TODO
-
-- [x] Test Multi entities tracking (SaveByCopyChanges)
-- [x] mixing saving entities with saveChanges and SaveByCopyChanges functions at the same time
-- [x] Auto load from NpgsqlDbType and BuiltInPostgresType attribute
-- [x] Get DBConnection from dbContext.Database
-- [x] Test with different column types
-- [x] BenchMark COPY vs multi insert methods
-- [x] Caching PostgreSQLCopyHelperFactory
-- [x] SaveCopyChanges extension
-- [x] Packaging library
-- [x] Github Actions
-- [ ] Transaction handling
-- [ ] Unit tests && update build
