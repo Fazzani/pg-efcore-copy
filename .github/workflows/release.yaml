@@ -1,0 +1,40 @@
+name: NuGet Generation
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    name: Update NuGet package
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Fetch all history for all tags and branches
+        run: git fetch --prune --unshallow
+        
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.2
+        with:
+          versionSpec: '5.2.x'
+      - name: Use GitVersion
+        id: gitversion # step id used as reference for output values
+        uses: gittools/actions/gitversion/execute@v0.9.2
+        
+      - name: Setup .NET Core @ Latest
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.102'
+
+      - name: Build solution and generate NuGet package
+        run: |
+          cd EF.Extensions.PgCopy
+          dotnet pack -c Release -o out /p:PackageVersion=${{ steps.gitversion.outputs.NuGetVersionV2 }}
+
+      - name: Push generated package
+        run: |
+          dotnet nuget push ./EF.Extensions.PgCopy/out/*.nupkg --api-key ${{secrets.Nuget}} --skip-duplicate --no-symbols true --source https://api.nuget.org/v3/index.json
