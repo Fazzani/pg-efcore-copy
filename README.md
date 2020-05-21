@@ -1,7 +1,7 @@
 # Ef Core postgres COPY binary extension
 
 ![NuGet Generation](https://github.com/Fazzani/pg-efcore-copy/workflows/NuGet%20Generation/badge.svg) 
-![Build](https://github.com/Fazzani/pg-efcore-copy/workflows/Build/badge.svg)
+![Build and test](https://github.com/Fazzani/pg-efcore-copy/workflows/Build%20and%20test/badge.svg)
 
 Entity framework core extension to perform [Postgres copy](https://kb.objectrocket.com/postgresql/postgresql-copy-example-826)
 
