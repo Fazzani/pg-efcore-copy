@@ -1,5 +1,7 @@
 # Ef Core postgres COPY binary extension
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/37b67ef9712e4b54abb810523cad311e)](https://app.codacy.com/manual/tunisienheni/pg-efcore-copy?utm_source=github.com&utm_medium=referral&utm_content=Fazzani/pg-efcore-copy&utm_campaign=Badge_Grade_Dashboard)
+
 ![NuGet Generation](https://github.com/Fazzani/pg-efcore-copy/workflows/NuGet%20Generation/badge.svg) 
 ![Build and test](https://github.com/Fazzani/pg-efcore-copy/workflows/Build%20and%20test/badge.svg)
 
