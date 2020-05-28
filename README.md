@@ -9,13 +9,15 @@ Entity framework core extension to perform [Postgres copy](https://kb.objectrock
 
 Based on [PostgreSQLCopyHelper](https://github.com/PostgreSQLCopyHelper/PostgreSQLCopyHelper)
 
-## Installation
+## Quick Start
+
+### Installation
 
 ```shell
 dotnet add package EF.Extensions.PgCopy --version 1.0.2
 ```
 
-### Example
+### Usage
 
 ```csharp
 var options = new DbContextOptionsBuilder<BloggingContext>()
