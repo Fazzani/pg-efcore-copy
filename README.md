@@ -14,7 +14,7 @@ Based on [PostgreSQLCopyHelper](https://github.com/PostgreSQLCopyHelper/PostgreS
 ### Installation
 
 ```shell
-dotnet add package EF.Extensions.PgCopy --version 1.0.2
+dotnet add package EF.Extensions.PgCopy --version 1.0.4
 ```
 
 ### Usage
