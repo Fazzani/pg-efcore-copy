@@ -157,7 +157,7 @@ namespace EF.Extensions.PgCopy
             if (c == null)
                 throw new InvalidOperationException("A constructor for type was not found.");
 
-            var copyHelper = c.Invoke(new object[] {entityType.GetSchema(), entityType.GetTableName()});
+            var copyHelper = c.Invoke(new object[] {entityType.GetSchema(), QuoteIdentifier(entityType.GetTableName())});
 
             var mapMethodInfo = copyHelper.GetType().GetMethod("Map", BindingFlags.Instance | BindingFlags.Public);
 
@@ -171,7 +171,7 @@ namespace EF.Extensions.PgCopy
 
                 var lambda = Expression.Lambda(property, parameter).Compile();
 
-                var columnName = propertyType.GetColumnName();
+                var columnName = QuoteIdentifier(propertyType.GetColumnName());
                 var colType = textInfo.ToTitleCase(propertyType.GetColumnType());
                 var npgsqlDbType = GetNpgsqlDbType(colType);
                 var method = mapMethodInfo?.MakeGenericMethod(propertyType.ClrType);
@@ -189,6 +189,8 @@ namespace EF.Extensions.PgCopy
 
         private static Lazy<ReadOnlyDictionary<string, NpgsqlDbType>> _npgsqlDbTypeMapping =
             new Lazy<ReadOnlyDictionary<string, NpgsqlDbType>>(GetNpgsqlTypeMapping);
+
+        private static string QuoteIdentifier(string identifier) => "\"" + identifier.Replace("\"", "\\\"") + "\"";
 
         private static NpgsqlDbType GetNpgsqlDbType(string colType)
         {
