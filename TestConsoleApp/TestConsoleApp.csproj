@@ -7,7 +7,7 @@
 
     <ItemGroup>
       <PackageReference Include="BenchmarkDotNet" Version="0.12.1" />
-      <PackageReference Include="BenchmarkDotNet.Annotations" Version="0.12.1" />
+      <PackageReference Include="BenchmarkDotNet.Annotations" Version="0.13.1" />
       <PackageReference Include="EF.Extensions.PgCopy" Version="1.0.2" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9" />
     </ItemGroup>
