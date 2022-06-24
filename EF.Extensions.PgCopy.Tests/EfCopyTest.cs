@@ -98,9 +98,9 @@ namespace EF.Extensions.PgCopy.Tests
                 {
                     Online = i % 2 == 0,
                     Content = $"Post some content {Guid.NewGuid().ToString()} into {title}-{i}",
-                    PostDate = DateTime.Now,
+                    PostDate = DateTime.UtcNow,
                     Title = $"{title}-{i}",
-                    CreationDateTime = DateTime.Now
+                    CreationDateTime = DateTime.UtcNow
                 };
             }
         }
@@ -112,7 +112,7 @@ namespace EF.Extensions.PgCopy.Tests
                 yield return new Blog
                 {
                     Url = $"https://{url}/{i}",
-                    CreationDateTime = DateTime.Now
+                    CreationDateTime = DateTime.UtcNow
                 };
             }
         }

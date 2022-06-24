@@ -9,9 +9,8 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Metadata;
-using MoreLinq;
+using NeoSmart.AsyncLock;
 using Npgsql;
 using NpgsqlTypes;
 
@@ -159,7 +158,9 @@ namespace EF.Extensions.PgCopy
 
             var copyHelper = c.Invoke(new object[] {entityType.GetSchema(), QuoteIdentifier(entityType.GetTableName())});
 
-            var mapMethodInfo = copyHelper.GetType().GetMethod("Map", BindingFlags.Instance | BindingFlags.Public);
+            var mapMethodInfo = copyHelper.GetType().GetMethods().First(n =>
+                n.Name == "Map" && n.GetGenericArguments().Length == 1 && n.GetParameters().Length == 3 &&
+                n.GetParameters()[2].ParameterType == typeof(NpgsqlDbType));
 
             var textInfo = Thread.CurrentThread.CurrentCulture.TextInfo;
 
