@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <LangVersion>8</LangVersion>
     <PackageId>EF.Extensions.PgCopy</PackageId>
-    <Version>1.0.9</Version>
+    <Version>1.0.5</Version>
     <Authors>Fazzani</Authors>
     <Company>Synker</Company>
     <PackageProjectUrl>https://github.com/Fazzani/pg-efcore-copy</PackageProjectUrl>
