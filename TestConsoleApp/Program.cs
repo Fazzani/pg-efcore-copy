@@ -15,10 +15,11 @@ namespace TestConsoleApp
         /// <returns></returns>
         static async Task Main(string[] args)
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
             await TestEfInsertionExtenstionAsync(CancellationToken.None);
-            // await TestEfInsertion(CancellationToken.None);
-            // new EfInsertBenchmark().SaveEfCopy(100);
-            // var summary = BenchmarkRunner.Run(typeof(EfInsertBenchmark));
+            new EfInsertBenchmark().SaveEfCopy(100);
+            var summary = BenchmarkRunner.Run(typeof(EfInsertBenchmark));
             Console.WriteLine("Press any key to exit");
             Console.ReadKey();
         }

@@ -16,7 +16,7 @@ namespace TestConsoleApp.DbContext
         [Column("url")] public string Url { get; set; }
 
         [Column("creation_datetime", TypeName = "timestamptz")]
-        public DateTime CreationDateTime { get; set; } = DateTime.Now;
+        public DateTime CreationDateTime { get; set; } = DateTime.UtcNow;
         
         public List<Post> Posts { get; set; }
     }

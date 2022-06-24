@@ -5,7 +5,7 @@ namespace TestConsoleApp.DbContext
 {
     public class BloggingContext : Microsoft.EntityFrameworkCore.DbContext
     {
-        private const string ConnectionString = "Host=localhost;Port=54322;Database=dbtest;Username=db_user;Password=dtpass";
+        public const string ConnectionString = "Host=localhost;Port=54322;Database=dbtest;Username=db_user;Password=dtpass";
 
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
@@ -15,7 +15,7 @@ namespace TestConsoleApp.DbContext
         {
         }
 
-        public BloggingContext()
+        public BloggingContext() : base()
         {
             
         }

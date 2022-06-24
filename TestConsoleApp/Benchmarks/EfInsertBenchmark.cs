@@ -1,3 +1,4 @@
+using System;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Order;
 
@@ -13,6 +14,7 @@ namespace TestConsoleApp.Benchmarks
         [Arguments(10_000)]
         public void Save(long count)
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             var posts = EfInsertionTests.GeneratePosts(count: count == default ? 100 : count);
             EfInsertionTests.Save(posts, false);
         }
@@ -22,6 +24,7 @@ namespace TestConsoleApp.Benchmarks
         [Arguments(10_000)]
         public void SaveEfCopy(long count)
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
             var posts = EfInsertionTests.GeneratePosts(count: count == default ? 100 : count);
             EfInsertionTests.Save(posts);
         }

@@ -22,9 +22,9 @@ namespace TestConsoleApp
                     Online = i % 2 == 0,
                     // BlogId = 1,
                     Content = $"Post some content {Guid.NewGuid().ToString()} into {title}-{i}",
-                    PostDate = DateTime.Now,
+                    PostDate = DateTime.UtcNow,
                     Title = $"{title}-{i}",
-                    CreationDateTime = DateTime.Now
+                    CreationDateTime = DateTime.UtcNow
                 };
             }
         }
@@ -36,7 +36,7 @@ namespace TestConsoleApp
                 yield return new Blog
                 {
                     Url = $"https://{url}/{i}",
-                    CreationDateTime = DateTime.Now
+                    CreationDateTime = DateTime.UtcNow
                 };
             }
         }

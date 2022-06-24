@@ -19,7 +19,7 @@ namespace EF.Extensions.PgCopy.Tests.DbContext
         [Column("online"), Required] public bool Online { get; set; }
 
         [Column("creation_datetime", TypeName = "timestamptz")]
-        public DateTime CreationDateTime { get; set; } = DateTime.Now;
+        public DateTime CreationDateTime { get; set; } = DateTime.UtcNow;
 
         public Blog Blog { get; set; }
     }
